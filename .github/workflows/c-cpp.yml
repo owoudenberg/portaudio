@@ -13,6 +13,11 @@ jobs:
       run: ./configure
     - name: make
       run: make
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ubuntu
+        path: lib
 
   build-macos:
     runs-on: macos-latest
@@ -23,6 +28,11 @@ jobs:
       run: ./configure
     - name: make
       run: make
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: macos
+        path: lib
 
   build-cmake:
 
@@ -34,6 +44,11 @@ jobs:
       run: cmake .
     - name: make
       run: make
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ubuntu-cmake
+        path: lib
 
   build-cmake-msvc:
 
@@ -45,6 +60,11 @@ jobs:
       run: cmake .
     - name: build
       run: cmake --build .
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows
+        path: lib
 
   build-cmake-mingw:
 
@@ -58,3 +78,8 @@ jobs:
       run: cmake -DCMAKE_TOOLCHAIN_FILE=i686-w64-mingw32.cmake .
     - name: make
       run: make
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: mingw
+        path: lib
