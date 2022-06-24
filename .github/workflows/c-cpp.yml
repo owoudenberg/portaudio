@@ -24,6 +24,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: apt
+      run: sudo apt-get install libasound-dev libjack-dev
     - name: cmake
       run: cmake .
     - name: make
